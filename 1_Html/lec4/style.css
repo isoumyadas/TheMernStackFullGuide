@@ -1,0 +1,24 @@
+h1{
+    background-color: burlywood;
+}
+
+/* for class */
+
+.htwo{
+    background-color: aquamarine;
+    border: 6px solid green;
+}
+
+.hThree{
+    background-color: orangered;
+        border: 6px solid green;
+}
+
+#para{
+    background-color: blueviolet;
+    border: 4px solid black;
+}
+
+.thunder {
+    font-family: cursive;
+}
