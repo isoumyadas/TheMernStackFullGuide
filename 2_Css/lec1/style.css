@@ -1,0 +1,25 @@
+/* universal selector: To apply all the styles on everything */
+
+*{
+    font-family:cursive;
+}
+
+/* element selector */
+span{
+    background-color: violet;
+    border: 4px solid black;
+}
+
+/* class selector */
+
+.h2tag{
+    background-color: turquoise;
+    border: 4px solid black;
+}
+
+/* ID selector */
+
+#idtag{
+    background-color: tomato;
+    border: 7px solid black;
+}
