@@ -1,0 +1,52 @@
+.hello{
+    display: inline;
+    visibility: hidden;
+}
+
+span{
+    display: block;
+}
+
+/* Display
+
+    None: Will remove the element from the DOM
+    block: block will take the whole space horizontaly
+    inline: inline will take the space accordinly to it's text
+    visibility: will help you to, show or hidden the element on your DOM.
+*/
+
+.container {
+    background-color: rgb(142, 185, 230);
+    height: 200px;
+    width: 400px;
+    position: absolute;
+}
+
+.box{
+    height: 100px;
+    width: 100px;
+    background-color: gold;
+    position: relative;
+    top: 40px;
+    left: 50px;
+}
+
+/* Positions
+
+    Static: This is the defualt behaviour. and this will not change its positions.
+    Fixed: This will change the positions but, when scroll it will stay there. but it's fixed to the body of the page/DOM not the container you've made.
+    absolute: This will change the positions, this is also aligns to body/DOM not the container you've made.
+    relative : This will change the positions, but also it is relative to the container you've made. same sticky too work, but this time it will be sticky to the container you've made.
+
+    overflow: scroll => will not overflow the box or an design to go outside of particular container.
+
+*/
+
+/* Float Example */
+.really{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(71, 71, 0);
+    float: right;
+
+}
