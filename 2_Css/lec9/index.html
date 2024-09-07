@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specifity & Sizings</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0
+        }
+
+        .box{
+            border: 1px solid black;
+            /* width: 233px; */
+            background-color: aqua;
+            width: 80vw;
+            height: 80vh;
+            margin: auto;
+            
+        }
+    </style>
+</head>
+<body>
+    <!--
+    
+    Specifity:
+
+    order of specifity:>
+    Inline style > ID selector > Class of Attribute > Element Selector > Universal Selector.
+
+    !important will help to specifity.
+
+    universal selector > 0
+    Element selector and pseudo elements > 1
+    Class selectors, attribute selectors and pseudo-classes > 10
+    ID selectors > 100
+    Inline style > 1000
+    
+    -->
+
+    <h1>Sizings</h1>
+
+    <div class="box">
+        This is a box
+    </div>
+
+    <!-- 
+    px > depends on resolution
+    vw vh > are device specific
+    vmin vmax > depends on orientation
+    em > multiplier on current value / according to the parent
+    rem > multiplier on current value in respective to the root element
+    % > depends on parent.
+
+    default value is 16px.
+    
+    -->
+
+</body>
+</html>
