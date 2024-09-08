@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.box1 {
+  border: 4px solid yellowgreen;
+  display: inline-block;
+  width: 444px;
+}
+
+.box2 {
+  border: 4px solid forestgreen;
+  display: inline-block;
+  width: 444px;
+}
+
+/* inline-block helps you to set margin, cutout extra space */
+
+
+/* ============================================================= */
+
+.ok{
+    height: 133px;
+    width: 80vw;
+    padding: 3px;
+    margin: 3px;
+    border: 2px solid black;
+}
+
+.positions {
+    border: 2px solid rgb(26, 29, 22);
+    height: 80vh;
+    position: relative;
+}
+
+.ok1{
+background-color: aquamarine;
+position: absolute;
+top: 10px;
+left: 500px;
+}
+
+.ok2{
+background-color: blue;
+}
+.ok3{
+background-color: violet;
+}
+
+
+/* 
+
+Relative - Apni orginal position se change hogi
+Absolute - apne parent ke relative position change hogi
+Fixed - page mein position fixed hojaygi
+Sticky - page mein kahin bhi ho, scroll krne pr neeche nhi jaygi, stick hojaygi
+
+
+transform, filter, or perspective properties can also  make an element  appear as positioned.
+
+*/

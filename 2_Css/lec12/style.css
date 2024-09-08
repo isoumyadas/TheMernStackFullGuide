@@ -1,0 +1,42 @@
+/* media query */
+
+/* @media not/only mediatype and (expressions) {
+        Css-code
+}
+*/
+
+body {
+    background-color: tomato;
+}
+
+@media only screen and (max-width: 655px) {
+    body {
+    background-color: red;
+    }
+}
+
+/* 
+@media  screen and  (oreintation: potrait){
+} */
+
+.boxes {
+    display: flex;
+}
+
+.box {
+    height: 300px;
+    width: 300px;
+    background-color: brown;
+    padding: 5px 5px;
+    border: 4px solid black;
+}
+
+@media only screen and (max-width: 455px) {
+    body{
+        background-color: aqua;
+    }
+
+    .boxes{
+        flex-direction: column;
+    }
+}

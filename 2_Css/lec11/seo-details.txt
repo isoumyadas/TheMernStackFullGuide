@@ -1,0 +1,12 @@
+SEO => search engine optimization
+
+CLS => Cumulative Layout shift means load of your content. if your layout loads slow, the layout will shifts down
+
+LCP => The Largest Contentful Paint
+
+FID => First Input Delay
+
+Title => Title helps to maintain seo. try to keep each page their responsible title.
+
+// In head tag you can put a meta tag :> <meta name="description" contnet="lorem12">
+

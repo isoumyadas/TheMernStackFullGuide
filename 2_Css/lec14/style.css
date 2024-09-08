@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    position: relative;
+}
+
+ .navbar > ul {
+    display: flex;
+ }
+
+ .navbar > ul > li {
+    padding: 30px;
+    list-style: none;
+    position:relative;
+    left: 600px
+ }
+
+ .navbar {
+    background-color: violet;
+    height: 80px;
+    position: sticky;
+    top: 0;
+ }
+
+ .hero-section{
+    height: 80vh;
+    background-color: greenyellow;
+    margin: 17px;
+    display: flex;
+    justify-content: space-evenly;
+ }
+
+ .box1 {
+    height: 400px;
+    width: 400px;
+    background-color: pink;
+    align-self: center;
+ }
+
+ .box2 {
+     height: 400px;
+     width: 400px;
+     background-color: purple;
+     align-self: center;
+ }
+
+.info {
+    width: 80vw;
+    height: 120vh;
+    background-color: bisque;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: 0 150px;
+    text-align: justify;
+    padding: 15px;
+}
+
+.chatbot {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    background-color: aquamarine;
+    margin-left: 1460px;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer {
+    margin-top: 20px;
+    height: 10vh;
+    background-color: red;
+}

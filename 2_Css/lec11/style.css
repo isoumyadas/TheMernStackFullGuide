@@ -1,0 +1,39 @@
+
+/* Down their is css variables :: in container blue is fallback var*/
+
+:root {
+    --color: violet;
+    --seccolor: purple;
+    --defpad: 20px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav{
+    background-color: plum;
+
+}
+
+ul li{
+    list-style: none;
+    /* padding: 10px 10px */
+    padding: var(--defpad);
+}
+
+ul li:first-child {
+    --color: rgb(53, 206, 53);
+    background-color: var(--color);
+}
+
+.container{
+    background-color: var(--color , blue)
+}
+
+ul {
+    display: flex;
+}
+

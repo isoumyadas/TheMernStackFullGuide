@@ -5,17 +5,22 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    
+}
+
+body {
+    background-color: #858482; 
 }
 
 .main-contianer {
     width: 25vw;
     height: 90vh;
-    /* border: 2px solid #E9DCC9; */
+    border: 2px solid #E9DCC9;
     border-radius: 15px;
     position: absolute;
     top: 20px;
     left: 600px;
-    background-color: #FAF9F6;
+    background-color: #ffffff;
 }
 
 /* .hero-section{
