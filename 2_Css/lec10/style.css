@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.main-contianer {
+    width: 25vw;
+    height: 90vh;
+    /* border: 2px solid #E9DCC9; */
+    border-radius: 15px;
+    position: absolute;
+    top: 20px;
+    left: 600px;
+    background-color: #FAF9F6;
+}
+
+/* .hero-section{
+    position: relative;
+    border: 2px solid green;
+    border-radius: 15px;
+    width: 360px;
+    height: 310px;
+    margin: 10px;
+} */
+
+.img-tag{
+    position: relative;
+    /* border: 2px solid green; */
+    border-radius: 15px;
+    width: 360px;
+    height: 310px;
+    margin: 10px;
+}
+
+.tags{
+    position: relative;
+    top: 10px;
+    left: 20px;
+}
+
+.span-2{
+    position: relative;;
+    left: 20px;
+    border-radius: 10px;
+    padding: 0px 9px;
+    background-color: #E9DCC9;
+    color: rgb(90, 85, 85);
+}
+
+.span-1 {
+    border-radius: 10px;
+    padding: 0px 9px;
+    background-color:#E9DCC9;
+    color: rgb(90, 85, 85);
+}
+
+.intro-section {
+    position: relative;
+    top: 20px;
+    padding: 0 20px;
+    text-align: justify
+}
+
+.info-des{
+    position: relative;
+    top: 10px;
+}
+
+.title{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+button{
+    position: relative;
+    top: 20px;
+    left: 100px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #8dcbdb;
+    color: rgb(11, 85, 110);
+    font-weight: bold;
+}
