@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid 2</title>
+    <style>
+        .gridMain{
+            border: 3px solid rgb(109, 105, 105);
+            display: grid;
+            height: 100vh;
+            grid-template-areas: "nav nav nav"
+                                 "side article article"
+                                 "footer footer footer";
+            /* justify-content: flex-start; */
+            align-items:center;
+        }
+
+        .items{
+            border: 1px solid rgb(26, 11, 11);
+            height: 55px;
+        }
+
+        .item-1{
+            background-color: aqua;
+            grid-area: nav;
+            align-self: flex-end;
+            /* justify-self: left; */
+        }
+        .item-2{
+            background-color: chartreuse;
+            grid-area: side;
+        }
+        .item-3{
+             background-color: rgb(0, 255, 110);
+            grid-area: article;
+        }
+        .item-4{
+             background-color: rgb(255, 0, 255);
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+    <div class="gridMain">
+        <div class="items item-1">1</div>
+        <div class="items item-2">2</div>
+        <div class="items item-3">3</div>
+        <div class="items item-4">4</div>
+    </div>
+
+    <!-- 
+    also here are the concept you can use 
+
+    fr unit you can set as grid template column :> 1fr 2fr 1fr
+
+    you can use gap to gap between boxes
+
+    row-gap;
+    column-gap;
+    gap;
+
+
+    while giving height, you can use  align-items as center and many different positions.
+
+    justify-items: center
+    align-items: center
+    
+
+    repeat(4, fr) you can use this to avoid repeating.
+
+    note:
+     if you have your main container big and your within grid is small then you can use align-content and justify-content
+     justify-items & align items will be used only in cell.
+
+     thier is place-content also.
+    
+    -->
+</body>
+</html>
