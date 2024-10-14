@@ -1,0 +1,78 @@
+.container {
+    border: 4px solid lightgreen;
+    height: 80vh;
+    display: flex;
+    /* justify-content: center; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 39px;
+}
+
+.item{
+    height: 100px;
+    width: 100px;
+    background-color: skyblue;
+    border: 1px solid black;
+}
+
+.item-1{
+    flex-grow: 3;
+}
+
+/* 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    here, justify-content center mean horziantally center
+    and align-items center mean vertically center
+
+    **Flex-direction**
+        This helps you to set direction of your content
+        we've column, row, column-reverse, row-reverse
+
+    **flex-wrap**
+        This helps to wrap the items into container, if they overflowing or you want set view for mobile verison
+    
+    **align-content**
+        The main differnce between align-items and content is items work for the item are in one line and if it's more than one line then you've to use align-content.
+            you've flex-start,end,center
+
+    **GAP**
+        gap is used to add space between the items, you can use gap in both row and column
+            this is been written in container
+
+    you've column-gap and row-gap
+
+
+    ---------------------------------------------------------
+
+    item property
+        **Order**
+            if the order value this higher then it will lay afterwards and if it is less than it will lay before.
+            
+            order: 3 -> denotes higher
+            order: 1 -> denotes lower
+            0 is the default value
+
+        **Flex-grow**
+            This is used to increase the size of the item, if the space is available.
+            if the value is 0 then it will not increase the size of the item.
+        
+            eg: 
+            flex-grow: 1 -> means it will increase the size of the item by 1
+            flex-grow: 2 -> meand it will increase the size of the item by 2
+
+       **Flex-shrink**
+        flex-shrink works like if you kept the value as  
+            flex-shrink: 2; -> then it will shrink 2x faster than than items. remember this property should be added to items not container. for eg: item-1
+
+        **Align-self**
+        This is used to align the item to the container, if the align-items is not set.
+        you've flex-start, center, end, baseline, stretch
+        this will work for independent items.
+
+*/

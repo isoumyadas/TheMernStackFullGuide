@@ -1,0 +1,39 @@
+/* div {
+    width: 100%;
+    height: 20%;
+    background-color: rebeccapurple;
+}
+
+section{
+    width: 500px;
+    height: 500px;
+    background-color: teal;
+} */
+
+/* In Sizes or units
+
+    % is dependent on the parent element
+
+    eg: section has 500px height & width, in that we have div as a 
+    children element, so we've gave the value for div as width 100% that will cover 100% of the 500px. and 20% of the height of the 500px of the section. this is how % is been used. you can use the em units for padding and margin. but this also has the diff scenarios.
+
+*/
+
+p{
+    font-size: 2rem;
+}
+
+/* rem doesn't care about parent element
+    eg: if we nest the p tag into section tag, so it will not see what the current value of section is it will directly compare it to HTML element
+
+    1rem = 16px
+
+    never set the font-size for root element.
+
+    eg: html { font-size: 2rem } 
+
+    in that case, em is fully opposite to rem. you can compare with the rem defination. don't often use em for font-size
+*/
+
+
+/* using % is better than using vw and vh */

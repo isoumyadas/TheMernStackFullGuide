@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.main-container{
+    height: 100vh;
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.intro-container > p {
+    width: 180px;
+}
+
+
+.speakers{
+    height: 500px;
+    width: 200px;
+    background-color: lightcoral;
+    border: 1px solid lightgray;
+}
