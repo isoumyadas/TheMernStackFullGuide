@@ -1,0 +1,38 @@
+1. Why should use % instead of vh in container? 
+    -> Note: never use any height or width on body, be this auto to take the content.
+        ->  You can remove the fixed height (100vh) from the body and allow it to expand based on the content size. This will prevent unnecessary overflow issues when the content exceeds the viewport height.
+
+        -> **Best Practice**: Use min-height: 100vh on your main layout container (like .main-container), and let the body grow naturally. This way, the content can expand as needed without cutting off or overflowing beyond the viewport.
+
+    -> When to Use vh for body:
+
+        Full-Viewport Layouts: If you want your page to always take up the entire height of the screen, even when the content is smaller than the viewport, using 100vh on the body works fine.
+        This is often useful for minimalistic landing pages, splash screens, or sections where you want the content to be centered vertically on the screen.
+
+        For Centering Elements with Flexbox:
+        Since you used Flexbox in your main container, setting the body height to 100vh allows the flexbox alignment (like justify-content: center and align-items:center) to work well in positioning the .main-container in the center of the screen.
+    
+    -> Drawbacks:
+
+        Content Overflow on Small Screens:
+        If the content inside the body exceeds the viewport height (for example, on mobile devices or smaller screens), setting height: 100vh can cause content to overflow or get cut off.
+        This means users might not be able to scroll to see the rest of the content.
+
+        Mobile Browsers’ Dynamic Toolbars:
+        On mobile devices, browsers often hide and show the address bar dynamically as the user scrolls. When using vh, this can sometimes create an issue where the layout appears to resize awkwardly because 100vh includes the space the browser controls take up.
+
+    -> Recommended alternative: Remove 100vh from the body and let the content determine the height. Use min-height: 100vh on sections like .main-container       where you want to center content within the viewport without cutting off overflow.
+
+
+2. Difference between height, width, min-height, min-width, max-height, max-width ?
+
+    -> height and width: Set fixed sizes. The element will always try to adhere to these dimensions, regardless of content or available space.
+
+    -> min-height and min-width: Set the minimum sizes for an element. The element can grow larger, but it won’t shrink below these values.
+
+    -> max-height and max-width: Set the maximum sizes for an element. The element can shrink but will never grow beyond these values.
+
+        Practical Use Cases:
+            -> min-height and min-width are great for responsive designs where you want to maintain a minimum size for usability but allow flexibility.
+            -> max-height and max-width are useful to prevent elements from becoming too large, especially on wide screens or with expanding content.
+
