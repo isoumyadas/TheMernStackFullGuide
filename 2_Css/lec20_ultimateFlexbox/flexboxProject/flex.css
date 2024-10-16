@@ -7,7 +7,7 @@
 
 
 .main-container{
-    height: 100vh;
+    height: 100vh; /* Use often vh don't use vw */
     background-color: skyblue;
     display: flex;
     justify-content: center;
@@ -16,13 +16,14 @@
 }
 
 .intro-container > p {
-    width: 180px;
+    width: 80%;
 }
 
 
 .speakers{
     height: 500px;
     width: 200px;
+    /* flex: 1; */
     background-color: lightcoral;
     border: 1px solid lightgray;
 }

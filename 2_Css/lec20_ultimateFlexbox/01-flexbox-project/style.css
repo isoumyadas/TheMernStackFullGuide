@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.main-container{
+   min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+.des-sec{
+    height: auto;
+    width: 100%;
+    /* By setting width: 100%, you're allowing the elements to take up the full available width of their parent container, which means they can expand or shrink based on the screen size */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.items{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+   
+}
+
+.small-items{
+    width: 100%;
+    max-width: 190px; 
+    /* The max-width sets an upper limit, ensuring that the elements don't grow excessively large on bigger screens */
+    padding-top: 0.9rem;
+}
+
+.img-container{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-desc{
+    padding-top: 0.5rem;
+}
+
+.imgs{
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

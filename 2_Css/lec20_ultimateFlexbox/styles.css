@@ -75,4 +75,7 @@
         you've flex-start, center, end, baseline, stretch
         this will work for independent items.
 
+        **flex basis**
+        This is used to set the initial size of the item, if the space is available.
+
 */
