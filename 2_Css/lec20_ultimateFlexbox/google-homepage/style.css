@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: #0f172a;
+}
+
+body {
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+.google-header {
+  font-family: "Poppins", sans-serif;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.text-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.icon-link {
+  font-size: 1rem;
+  color: inherit;
+  width: 30px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.icon-link:hover {
+  background-color: rgb(236, 236, 236);
+}
+
+/* avoid margin in most of the cases */
+
+/* Public folder: is a folder were we keep all static assests -> font,video,img */
+
+.img-btn {
+  border: none;
+  background: transparent;
+}
+
+.img-btn img {
+  width: 40px;
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.title-txt {
+  font-size: 5rem;
+}
+
+.input-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid rgb(236, 236, 236);
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.input-bar:hover,
+.input-bar:focus-within {
+  box-shadow: 0px 0px 10px 2px rgb(212, 212, 212);
+}
+
+.input-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.input-bar div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input-icons:hover {
+  opacity: 0.6;
+}
+
+.button-grid {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button-grid button {
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  /* This helps that jumppy button effect */
+  background-color: rgb(242, 241, 241);
+  border-radius: 0.25rem;
+}
+
+.button-grid button:hover {
+  border: 1px solid slategray;
+}
+
+.language-link {
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lan-txt {
+  font-size: 0.9rem;
+}
+
+.language-link:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: rgb(244, 244, 244);
+}
+
+footer > div {
+  padding: 1rem;
+}
+
+/* Why we used > here, cauz it directly targets footer children div. */
+
+.footer-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/*  */
+
+.nav-container-second .text-link {
+  display: none;
+}
+
+/* media query */
+
+@media (min-width: 640px) {
+  .footer-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .nav-container-second .text-link {
+    display: block;
+  }
+}
+
+/* Use method called mobile first */
