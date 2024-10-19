@@ -1,0 +1,41 @@
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: aqua;
+  border: 2px solid black;
+  transform: rotate(0.25turn);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  height: 80vh;
+  border: 2px solid purple;
+}
+
+/* All about Transforms
+
+transform: rotate(40deg);
+transform: rotateX(4deg);
+transform: rotateY(40deg);
+transform: rotateZ(40deg);
+
+Imagine XYZ as Xaxis and Yaxis with Zaxis is inside the both axis.
+
+scale**
+
+transform:scale(1.6); 1.6 bigger on screen;
+transform:scaleX(1.6); 1.6 bigger on screen;
+transform:scaleY(1.6); 1.6 bigger on screen;
+transform:scaleZ(1.6); 1.6 bigger on screen;
+
+transform:skew(5deg); it makes like rombhus shape.
+X,Y but not on Z axis.
+
+And their is translate property which can be used as X,Y 
+
+Learn transfroms again. if not understood.
+
+*/
