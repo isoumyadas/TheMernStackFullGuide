@@ -1,0 +1,36 @@
+.container {
+  background: red;
+  width: 50vw;
+  height: 60vh;
+}
+
+.box {
+  background: #000;
+  width: 9vw;
+  height: 9vh;
+  transition-property: transform;
+  transition-duration: 3s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 4s;
+}
+
+.tr {
+  transform: translateX(10vw) translateY(10vh);
+}
+
+/*  Transition
+
+    transition-property;
+    transition-duration;
+    transition-timing-function;
+    transition-delay;
+
+
+    you can add transition property like this too:
+        transition-property: color transform; -> This will target color and transform property.
+
+    Shorthand property
+    transition: property duration timing-function delay;
+
+        values => transition: all 3s ease-in 1s;
+*/
