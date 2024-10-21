@@ -1,0 +1,20 @@
+/* .container {
+  height: 634px;
+  width: 688px;
+  border: 3px solid black;
+  background-image: url(https://www.cityguide-dubai.com/fileadmin/_processed_/3/3/csm_img-worlds-of-adventures-teaser_40e4184da1.jpg);
+  background-position: center center;
+} */
+
+/* img {
+  height: 634px;
+  width: 688px;
+  object-fit: cover;
+  object-position: bottom left;
+} */
+
+/* Filter */
+
+img {
+  filter: blur(10px);
+}
