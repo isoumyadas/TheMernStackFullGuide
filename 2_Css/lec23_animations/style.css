@@ -1,0 +1,73 @@
+/* .container {
+  background-color: azure;
+  height: 80vh;
+  width: 30vw;
+} */
+
+/* .box {
+  width: 114px;
+  height: 145px;
+  background-color: aqua;
+  animation-name: slowanimate;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  /* animation-direction: alternate-reverse; */
+/* animation-play-state: running; */
+/* }  */
+
+/* @keyframes slowanimate {
+  from {
+    transform: translateX(100px);
+    background-color: lightblue;
+  }
+  to {
+    transform: translateX(1000px);
+    background-color: violet;
+  }
+} */
+
+/* learn more about animations through mdn 
+
+    **animation shorthand**
+    animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+
+    you can create multiple animations
+*/
+
+/* -================================================== */
+
+.bounceContainer {
+  width: 90vw;
+  height: 80vh;
+  background: lightcoral;
+  position: relative;
+}
+
+.ball {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: aquamarine;
+  border-radius: 70px;
+  animation: X 3s linear infinite, Y 1s ease-out infinite alternate;
+}
+
+@keyframes Y {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 100%;
+  }
+}
+
+@keyframes X {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
