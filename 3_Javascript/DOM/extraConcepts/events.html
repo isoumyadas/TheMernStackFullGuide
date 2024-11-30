@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom concepts</title>
+    <style>
+      .containers {
+        width: 200px;
+        height: 100px;
+        border: 1px solid rgb(0, 0, 0);
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="homepage">Homepage</h1>
+
+    <form action="">
+      <label for="name">Name:</label>
+      <input id="name" type="text" placeholder="YOUR NAME" />
+      <br />
+      <br />
+      <label for="email">Email:</label>
+      <input id="email" type="email" placeholder="YOUR EMAIL" />
+
+      <br />
+      <br />
+
+      <button id="submit">Submit</button>
+    </form>
+  </body>
+  <script>
+    const nameInput = document.querySelector("#name");
+    const emailInput = document.querySelector("#email");
+    const submitBtn = document.querySelector("#submit");
+    let msg = document.createElement("p");
+    const finalOutput = document.createElement("h5");
+
+    submitBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (nameInput.value === "" || emailInput.value === "") {
+        msg.appendChild(
+          document.createTextNode("Email and Name should be filled correctly")
+        );
+        setTimeout(() => msg.remove(), 2000);
+        document.body.appendChild(msg);
+      } else {
+        finalOutput.appendChild(
+          document.createTextNode(`${nameInput.value} : ${emailInput.value}`)
+        );
+
+        document.body.appendChild(finalOutput);
+
+        //Clear Fileds
+
+        nameInput.value = "";
+        emailInput.value = "";
+      }
+    });
+
+    // ========================================================
+
+    // Events
+
+    // To stop bubbling use e.stopPropagation
+
+    // stopPropagation(): Stops further propagation in both bubbling and capturing phases.
+
+    // stopImmediatePropagation(): Stops other listeners on the same element.
+
+    // For capturing you use true after the fucntion ends
+
+    example.addEventListener("click", () => {}, true);
+
+    // Bubbling mean from inner to parent.
+    // Capturing mean from parent to child.
+
+    // To remove event listners
+    element.removeEventListener("event", callback);
+
+    // To know the event type
+    event.type;
+
+    //Once and passive listeners
+
+    // once Option: Ensures the event listener is executed only once.
+    element.addEventListener("click", handler, { once: true });
+
+    // passive Option: Indicates the event listener will never call preventDefault(). Useful for improving performance in events like scroll or touchstart.
+    window.addEventListener("scroll", handler, { passive: true });
+
+    // You can create your own Custom Events
+
+    const customEvent = new CustomEvent("myEvent", {
+      detail: { message: "Hello!" },
+    });
+    element.dispatchEvent(customEvent);
+
+    element.addEventListener("myEvent", (event) => {
+      console.log(event.detail.message); // 'Hello!'
+    });
+
+    // ==========================================================
+
+    // MouseOver and MouseOut
+
+    //     <div id="colorBox" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+
+    const box = document.getElementById("colorBox");
+
+    box.addEventListener("mouseover", function () {
+      box.style.backgroundColor = "lightgreen";
+    });
+
+    box.addEventListener("mouseout", function () {
+      box.style.backgroundColor = "lightblue";
+    });
+
+    // =============================================================
+
+    // Keydown and Keyup
+
+    //     <input type="text" id="textInput" placeholder="Type something..." />
+
+    document
+      .getElementById("textInput")
+      .addEventListener("keydown", function (event) {
+        console.log("Key pressed: " + event.key);
+      });
+
+    //     <input type="text" id="liveInput" placeholder="Type here..." />
+    // <p>Live Preview: <span id="preview"></span></p>
+
+    document
+      .getElementById("liveInput")
+      .addEventListener("keyup", function (event) {
+        document.getElementById("preview").textContent = event.target.value;
+      });
+
+    // ========================================================
+
+    // Submit
+
+    //     <form id="myForm">
+    //   <input type="text" name="username" placeholder="Enter username" required />
+    //   <button type="submit">Submit</button>
+    // </form>
+
+    document
+      .getElementById("myForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent actual submission
+        console.log("Form submitted with data:", new FormData(event.target));
+      });
+
+    // Input
+
+    //     <textarea id="textArea" maxlength="100" placeholder="Type something..."></textarea>
+    // <p>Characters left: <span id="charCount">100</span></p>
+
+    const textArea = document.getElementById("textArea");
+    const charCount = document.getElementById("charCount");
+
+    textArea.addEventListener("input", function () {
+      charCount.textContent = 100 - textArea.value.length;
+    });
+
+    // Scroll
+
+    // <button id="backToTop" style="display: none; position: fixed; bottom: 20px; right: 20px;">Back to Top</button>
+
+    const backToTopButton = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 200) {
+        backToTopButton.style.display = "block";
+      } else {
+        backToTopButton.style.display = "none";
+      }
+    });
+
+    backToTopButton.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Event Delegation
+    // Event delegation allows you to handle events for multiple child elements using a single event listener on their parent.
+
+    //     <ul id="list">
+    //   <li>Item 1</li>
+    //   <li>Item 2</li>
+    //   <li>Item 3</li>
+    // </ul>
+
+    const list = document.getElementById("list");
+
+    // Event delegation
+    list.addEventListener("click", (event) => {
+      if (event.target.tagName === "LI") {
+        console.log(`You clicked on ${event.target.textContent}`);
+      }
+    });
+
+    // Adding a new item dynamically
+    const newItem = document.createElement("li");
+    newItem.textContent = "Item 4";
+    list.appendChild(newItem);
+
+    // Throttling and Debouncing
+
+    //Throttling
+    // Ensures the event handler is called at most once every specified time interval.
+
+    function throttle(func, delay) {
+      let lastCall = 0;
+      return function (...args) {
+        const now = Date.now();
+        if (now - lastCall >= delay) {
+          lastCall = now;
+          func(...args);
+        }
+      };
+    }
+
+    window.addEventListener(
+      "scroll",
+      throttle(() => {
+        console.log("Throttled Scroll Event");
+      }, 200)
+    );
+
+    // Debouncing
+    // Ensures the event handler is called only after a specified delay since the last event.
+    function debounce(func, delay) {
+      let timer;
+      return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => func(...args), delay);
+      };
+    }
+
+    window.addEventListener(
+      "resize",
+      debounce(() => {
+        console.log("Debounced Resize Event");
+      }, 300)
+    );
+  </script>
+</html>

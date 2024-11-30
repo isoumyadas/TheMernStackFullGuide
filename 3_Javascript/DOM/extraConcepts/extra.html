@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom concepts</title>
+    <style>
+      .containers {
+        width: 200px;
+        height: 100px;
+        border: 1px solid rgb(0, 0, 0);
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="homepage">Homepage</h1>
+
+    <ul id="items">
+      <li class="item">All items</li>
+      <li class="item">Every Items</li>
+      <li class="item">Not all items</li>
+      <li class="item">No Items</li>
+    </ul>
+  </body>
+  <script>
+    // Changing Homepage text color
+    const homepageText = document.querySelector(".homepage");
+    homepageText.style.color = "purple";
+
+    // manipulating li items
+    const liItem = document.querySelectorAll(".item");
+    liItem.forEach((item) => {
+      item.style.color = "red";
+      item.style.backgroundColor = "cyan";
+      item.style.fontSize = "2rem";
+    });
+
+    // Storing parent value and manipulating children items
+    const parent = document.querySelector("#items");
+    console.log(parent);
+    console.log(parent.children[2].innerHTML);
+
+    for (let i = 0; i < parent.children.length; i++) {
+      const element = parent.children[i];
+      console.log(element.innerHTML);
+    }
+
+    parent.children[1].style.color = "yellow";
+
+    // Creation of Element
+
+    const createDiv = (colors, titleName) => {
+      const div = document.createElement("div");
+      div.className = "containers";
+      div.setAttribute("id", "lokss");
+
+      div.style.backgroundColor = colors;
+      const textName = document.createTextNode(titleName);
+      div.appendChild(textName);
+      document.body.appendChild(div);
+    };
+
+    const colors = ["green", "lightblue", "lightgreen", "orange", "grey"];
+    const titleName = ["green", "lightblue", "lightgreen", "orange", "grey"];
+
+    for (let i = 0; i < 5; i++) {
+      createDiv(colors[i], titleName[i]);
+    }
+
+    // querySelectorAll always returns nodeList,  for  accessing you need to use array method for looping too (forEach).
+    // getElementByClassName // This always give HTMlcollection so when it comes you always use Array.from() to convert into an array.
+
+    const getData = (userName, age) => {
+      const createdDiv = document.createElement("div");
+      const createdPara = document.createElement("p");
+
+      createdPara.appendChild(document.createTextNode(userName));
+      createdPara.appendChild(document.createTextNode(age));
+
+      createdDiv.appendChild(createdPara);
+      document.body.appendChild(createdDiv);
+    };
+
+    const userData = [
+      { name: "John", age: 25 },
+      { name: "Jane", age: 30 },
+      { name: "Bob", age: 35 },
+      { name: "Soumya", age: 22 },
+      { name: "Shruti", age: 16 },
+    ];
+
+    for (let i = 0; i < 5; i++) {
+      const name = userData[i].name;
+      const age = userData[i].age;
+      getData(name, age);
+    }
+  </script>
+</html>
