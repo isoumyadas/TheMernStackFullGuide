@@ -141,9 +141,6 @@ The `type` property of the event object represents the type of the event (e.g., 
 
 ### **Example**:
 
-```html
-html
-Copy code
 <button id="btn">Click Me</button>
 
 <script>
@@ -164,9 +161,7 @@ The `timeStamp` property records the time (in milliseconds) from when the page l
 
 ### **Example**:
 
-```jsx
-javascript
-Copy code
+```
 document.getElementById('btn').addEventListener('click', (event) => {
   console.log(`Event Timestamp: ${event.timeStamp}`); // Logs event timestamp
 });
@@ -187,9 +182,7 @@ Prevent form submission or link navigation.
 
 ### **Example**:
 
-```html
-html
-Copy code
+```
 <a href="https://example.com" id="link">Go to Example</a>
 
 <script>
@@ -211,9 +204,7 @@ The `target` property returns the element that triggered the event.
 
 ### **Example**:
 
-```html
-html
-Copy code
+```
 <button id="btn">Click Me</button>
 
 <script>
@@ -233,9 +224,7 @@ Copy code
 
 ### **Example**:
 
-```html
-html
-Copy code
+```
 <div id="div1" style="width:100px;height:100px;background:red;"></div>
 <div id="div2" style="width:100px;height:100px;background:blue;"></div>
 
@@ -258,9 +247,7 @@ The `currentTarget` property refers to the element that the event listener is cu
 
 ### **Example**:
 
-```html
-html
-Copy code
+```
 <div id="parent">
   <button id="child">Click Me</button>
 </div>
@@ -283,9 +270,7 @@ Returns the X and Y coordinates of the mouse pointer relative to the **viewport*
 
 ### **Example**:
 
-```html
-html
-Copy code
+```
 <button id="btn">Click Me</button>
 
 <script>
@@ -304,9 +289,7 @@ Returns the X and Y coordinates of the mouse pointer relative to the **entire sc
 
 ### **Example**:
 
-```jsx
-javascript
-Copy code
+```
 document.getElementById('btn').addEventListener('click', (event) => {
   console.log(`screenX: ${event.screenX}, screenY: ${event.screenY}`);
 });
@@ -321,9 +304,7 @@ Returns `true` if the corresponding key was pressed during the event.
 
 ### **Example**:
 
-```jsx
-javascript
-Copy code
+```
 document.addEventListener('keydown', (event) => {
   console.log(`Alt: ${event.altKey}, Ctrl: ${event.ctrlKey}, Shift: ${event.shiftKey}`);
 });
@@ -339,9 +320,7 @@ document.addEventListener('keydown', (event) => {
 
 ### **Example**:
 
-```jsx
-javascript
-Copy code
+```
 document.addEventListener('keydown', (event) => {
   console.log(`Key Code: ${event.keyCode}, Key: ${event.key}`);
 });
