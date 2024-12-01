@@ -2,10 +2,10 @@ const selectedDiv = document.querySelector("#colorChange");
 
 selectedDiv.addEventListener("mouseover", (e) => {
   selectedDiv.style.backgroundColor = "yellow";
+});
 
-  selectedDiv.addEventListener("mouseout", (e) => {
-    selectedDiv.style.backgroundColor = "lightblue";
-  });
+selectedDiv.addEventListener("mouseout", (e) => {
+  selectedDiv.style.backgroundColor = "lightblue";
 });
 
 // ====================================================================
