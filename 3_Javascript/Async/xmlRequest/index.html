@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetching data</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="card" style="width: 18rem">
+      <img src="" class="card-img-top" alt="" />
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </body>
+  <script>
+    const requestUrl = `https://api.github.com/users/isoumyadas`;
+    const userImage = document.querySelector(".card-img-top");
+    const userName = document.querySelector(".card-title");
+    const userFollowers = document.querySelector(".card-text");
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        const data = JSON.parse(this.responseText);
+        const followers = data.followers;
+        const image = (userImage.src = data.avatar_url); // This is how we can insert an image to given class.
+        console.log(image);
+        const name = data.name;
+
+        userImage.append(image);
+        userName.append(name);
+        userFollowers.append(followers);
+
+        console.log(typeof data);
+        console.log(data.followers);
+      }
+    };
+
+    xhr.send();
+  </script>
+</html>
