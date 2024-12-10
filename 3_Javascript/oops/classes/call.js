@@ -11,3 +11,29 @@ function createUser(username, email, password) {
 
 const chai = new createUser("ookok", "ok@fb.com", "123");
 console.log(chai);
+
+//Call
+
+const student = {
+  name: "soumya",
+  printName: function () {
+    console.log(this.name);
+  },
+};
+
+student.printName();
+
+const student2 = {
+  name: "Messi",
+};
+
+student.printName.call(student2);
+
+// apply
+// student.apply(["xyz", "pqr", "abc"]) //Here you can pass multiple arguments in array list
+
+//bind // It returns a copy of the method which can be invoke later.
+
+// let printMyName = student.bind(student, "Mumabi", "Maharashtra");
+// console.log(printMyName);
+// printMyName();

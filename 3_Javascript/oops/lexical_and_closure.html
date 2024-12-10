@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="green">Green</button>
+    <button id="yellow">Yelloowsss</button>
+  </body>
+
+  <script>
+    function clickHandler(color) {
+      return function () {
+        document.body.style.backgroundColor = color;
+      };
+    }
+
+    document
+      .querySelector("#green")
+      .addEventListener("click", clickHandler("lightgreen"));
+    document
+      .querySelector("#yellow")
+      .addEventListener("click", clickHandler("lightyellow"));
+  </script>
+</html>

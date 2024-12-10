@@ -12,7 +12,7 @@ class User {
   }
 
   changeUsername() {
-    return `${this.username.toUpperCase()}`;
+    return `${this.name.toUpperCase()}`;
   }
 }
 
