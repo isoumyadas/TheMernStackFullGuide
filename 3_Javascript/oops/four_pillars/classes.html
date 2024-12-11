@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Account - Class</title>
+  </head>
+  <body>
+    <form id="createAccount">
+      <input type="text" placeholder="Holder's Name" id="userName" />
+      <input type="text" placeholder="Initial Balance" id="balance" />
+      <button>Create Account</button>
+    </form>
+    <hr />
+    <form id="depositBalance">
+      <input
+        type="number"
+        placeholder="Holder's Account Number"
+        id="accountNumber"
+      />
+      <input type="text" placeholder="Deposited Balance" id="depositAmount" />
+      <button>Deposit</button>
+    </form>
+  </body>
+  <script>
+    class BankAccount {
+      constructor(customerName, balance = 0) {
+        this.customerName = customerName;
+        this.accountNumber = Date.now();
+        this.balance = balance;
+      }
+
+      deposit(amount) {
+        // This directly injects into Prototype.
+        this.balance += amount;
+      }
+
+      withdraw(amount) {
+        this.balance -= amount;
+      }
+    }
+
+    const somAcc = new BankAccount("som");
+    somAcc.deposit(9000);
+    console.log(somAcc);
+  </script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Account</title>
+  </head>
+  <body>
+    <form id="createAccount">
+      <input type="text" placeholder="Holder's Name" id="userName" />
+      <input type="text" placeholder="Initial Balance" id="balance" />
+      <button>Create Account</button>
+    </form>
+    <hr />
+    <form id="depositBalance">
+      <input
+        type="number"
+        placeholder="Holder's Account Number"
+        id="accountNumber"
+      />
+      <input type="text" placeholder="Deposited Balance" id="depositAmount" />
+      <button>Deposit</button>
+    </form>
+  </body>
+  <script>
+    // ===============================================================================
+
+    // ^ constructor Function
+
+    function BankAccount(customerName, balance = 0) {
+      // You can keep bankAccount but for naming convention use BankAccount.
+      this.customerName = customerName;
+      this.accountNumber = Date.now();
+      this.balance = balance;
+
+      this.deposit = function (amount) {
+        // This is not an optimize way to do.
+        this.balance += amount;
+      };
+
+      this.withdraw = (amount) => {
+        this.balance -= amount;
+      };
+    }
+
+    // const soumyaAcc = new BankAccount("Soumya D", 1000);
+    // const johnAcc = new BankAccount("John Doe");
+
+    // soumyaAcc.deposit(8000);
+    // johnAcc.deposit(60000);
+
+    // soumyaAcc.withdraw(4500);
+    // johnAcc.withdraw(55000);
+
+    // console.log(soumyaAcc);
+    // console.log(johnAcc);
+
+    // ===============================================================
+
+    // DOM
+    // Create Account
+    const accounts = [];
+    const createAccount = document.querySelector("#createAccount");
+    const userName = document.querySelector("#userName");
+    const balance = document.querySelector("#balance");
+
+    createAccount.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const account = new BankAccount(userName.value, Number(balance.value));
+      accounts.push(account);
+
+      console.log(accounts);
+    });
+
+    // Deposit
+    const depositBalance = document.querySelector("#depositBalance");
+    const accountNumber = document.querySelector("#accountNumber");
+    const depositAmount = document.querySelector("#depositAmount");
+
+    depositBalance.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const account = accounts.find(
+        (account) => account.accountNumber === Number(accountNumber.value)
+      );
+      console.log(account);
+      account.deposit(Number(depositAmount.value));
+      console.log(accounts);
+    });
+  </script>
+</html>
