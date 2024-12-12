@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Account - Encapsulation</title>
+  </head>
+  <body>
+    <form id="createAccount">
+      <input type="text" placeholder="Holder's Name" id="userName" />
+      <input type="text" placeholder="Initial Balance" id="balance" />
+      <button>Create Account</button>
+    </form>
+    <hr />
+    <form id="depositBalance">
+      <input
+        type="number"
+        placeholder="Holder's Account Number"
+        id="accountNumber"
+      />
+      <input type="text" placeholder="Deposited Balance" id="depositAmount" />
+      <button>Deposit</button>
+    </form>
+  </body>
+  <script>
+    class User {
+      static id = 1;
+      constructor(name, age, income) {
+        this.name = name;
+        this.age = age;
+        this.income = income;
+        this.id = User.id++;
+      }
+
+      // This runs when you call the static method, but it only runs 1 time.
+      static {
+        console.log(`DB connected`);
+      }
+
+      // static method direct class se connected hota hai, na ki instance se like user1, user2.
+      static compareByAge(user1, user2) {
+        return user1.age - user2.age;
+      }
+
+      static compareByIncome(user1, user2) {
+        return user1.income - user2.income;
+      }
+    }
+
+    const user1 = new User("soumya", 23, 6000);
+    const user2 = new User("shruti", 16, 5000);
+    const user3 = new User("Messi", 38, 4500);
+
+    const users = [user1, user2, user3];
+    // users.sort(User.compareByAge);
+    users.sort(User.compareByIncome);
+
+    console.log(users);
+
+    class Config {
+      static dbUser = "username";
+      static dbPassword = "password";
+      static apiToken = "abcd";
+    }
+
+    console.log(Config.dbPassword); // You can access static by this way.
+
+    //Note: If both the method or prop are static then only we can use this! We use this for instance.
+  </script>
+</html>

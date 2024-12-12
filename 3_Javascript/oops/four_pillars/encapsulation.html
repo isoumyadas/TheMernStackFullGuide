@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Account - Encapsulation</title>
+  </head>
+  <body>
+    <form id="createAccount">
+      <input type="text" placeholder="Holder's Name" id="userName" />
+      <input type="text" placeholder="Initial Balance" id="balance" />
+      <button>Create Account</button>
+    </form>
+    <hr />
+    <form id="depositBalance">
+      <input
+        type="number"
+        placeholder="Holder's Account Number"
+        id="accountNumber"
+      />
+      <input type="text" placeholder="Deposited Balance" id="depositAmount" />
+      <button>Deposit</button>
+    </form>
+  </body>
+  <script>
+    class BankAccount {
+      #balance;
+      constructor(customerName, balance = 0) {
+        this.customerName = customerName;
+        this.accountNumber = Date.now();
+        this.#balance = balance; // # mean private field its a naming convention. we can only acccess this only on their own class.
+      }
+
+      deposit(amount) {
+        // This directly injects into Prototype.
+        this.#balance += amount;
+      }
+
+      withdraw(amount) {
+        this.#balance -= amount;
+      }
+
+      // setBalance(amount) {
+      //   if (isNaN(amount)) {
+      //     throw new Error("Amount is not valid");
+      //   }
+      //   this.#balance = amount;
+      // }
+
+      // getBalance() {
+      //   return this.#balance;
+      // }
+
+      //getter and setters
+
+      set balance(amount) {
+        if (isNaN(amount)) {
+          throw new Error("Amount is not valid");
+        }
+        this.#balance = amount;
+      }
+
+      get balance() {
+        return this.#balance;
+      }
+    }
+
+    class CurrentAccount extends BankAccount {
+      transactionLimit = 5000;
+      constructor(customerName, balance = 0) {
+        super(customerName, balance);
+      }
+
+      #calculateInterest(amount) {
+        console.log("Calculating interest");
+      }
+
+      takeBusinessLoan(amount) {
+        this.#calculateInterest();
+        console.log(`Taking business loan: ${amount}`);
+      }
+    }
+
+    class SavingAccount extends BankAccount {
+      transactionLimit = 1000;
+      constructor(customerName, balance = 0) {
+        super(customerName, balance);
+      }
+
+      takePersonalLoan(amount) {
+        console.log(`Taking personal loan: ${amount}`);
+      }
+    }
+
+    const somAcc = new CurrentAccount("Smmy", 23300);
+    somAcc.deposit(9000);
+    // somAcc.setBalance(6000);
+    // console.log(somAcc.getBalance());
+
+    somAcc.balance = 7500;
+    console.log(somAcc.balance);
+    console.log(somAcc);
+    somAcc.takeBusinessLoan(800);
+  </script>
+</html>
