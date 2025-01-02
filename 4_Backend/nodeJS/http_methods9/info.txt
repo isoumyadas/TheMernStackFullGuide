@@ -1,0 +1,34 @@
+HTTP Methods:
+
+1. GET => When you want to get some data from the server.
+
+2. POST => When you want to send and mutate some data in server.
+
+3. PUT => To put something or add something
+
+4. PATCH => To change an exisitng record.
+
+5. Delete => To delete something.
+
+// Versoning:
+
+^4.18.3
+
+1st part => 4
+
+2nd part => 18
+
+3rd part => 2
+
+// 3rd part (Last Part) - Minor Fixes (Optional Update)
+
+// 2nd part  - Recommended Bug Fix (Security Fix | Added feature);
+
+// 1st part - Major Release / Breaking Update (Can break your existing code | use it for new code or new project from strach)
+
+// ^ - Compatible with version => means if ^4.15.7 then dont update above 4 like 5. and all the other version like 15 & 7 can get update.
+
+// ~ - Approx equivalent version => means dont change 4.15 but you can change 7.
+
+// To install a particular person package => npm i express@4.18.4
+
