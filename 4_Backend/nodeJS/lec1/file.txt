@@ -1,0 +1,12 @@
+=> Node js is a runtime
+
+=> We get V8 engines in Chromium browsers
+
+=> Devloper of Node js = Ryan Dahl (v8 embedding C++)
+
+=>  You can run JS outside of the browsers
+    JS can talk to native machine because of c++
+    You can create webservers in JS language
+
+=> When you write node in cmd -> You can open nodesj Repl
+

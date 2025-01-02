@@ -1,0 +1,5 @@
+To check nodeJS version =>  node --version
+
+NPM => Node Package Manager (It gets installed by default while downloading Node JS)
+
+To check version of NPM => npm -v
