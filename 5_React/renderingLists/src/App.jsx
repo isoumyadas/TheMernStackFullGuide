@@ -68,28 +68,70 @@
 
 // solution 3
 
-import { recipes } from "./recepies.js";
+// import { recipes } from "./recepies.js";
 
-// solution 4
-function Recipe({ name, ingredients }) {
-  return (
-    <div>
-      <h2>{name}</h2>
-      <ul>
-        {ingredients.map((p) => (
-          <li key={p}>{p}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+// // solution 4
+// function Recipe({ name, ingredients }) {
+//   return (
+//     <div>
+//       <h2>{name}</h2>
+//       <ul>
+//         {ingredients.map((p) => (
+//           <li key={p}>{p}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div>
+//       <h1>Recipes</h1>
+//       {recipes.map((p) => (
+//         <Recipe key={p.id} {...p} />
+//       ))}
+//     </div>
+//   );
+// }
+
+// Solution 5
+// import { categories } from "./categories";
+
+// function App() {
+//   return <Category />;
+// }
+
+// function Category() {
+//   return (
+//     <div>
+//       {categories.map((c) => (
+//         <div key={c.category}>
+//           <h1>{c.category}</h1>
+//           <ul>
+//             {c.subcategories.map((sub) => (
+//               <li key={sub}>{sub}</li>
+//             ))}
+//           </ul>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// solution 6
+
+const arr = ["apple", "banana", "cherry"];
 
 function App() {
+  return <Transform words={arr} />;
+}
+
+function Transform({ words }) {
   return (
     <div>
-      <h1>Recipes</h1>
-      {recipes.map((p) => (
-        <Recipe key={p.id} {...p} />
+      {words.map((a) => (
+        <h2 key={a}>{a.toUpperCase()}</h2>
       ))}
     </div>
   );
