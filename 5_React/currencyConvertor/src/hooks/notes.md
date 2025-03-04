@@ -2,6 +2,12 @@
 
 ## Use .jsx for components that return JSX.
 
+## start with "use"
+
+## can call other hooks
+
+## When a custom hook is used in multiple components, each component gets its own isolated state
+
 ## Best practice:
 
 ```javascript
