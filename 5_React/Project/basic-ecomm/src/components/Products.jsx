@@ -9,7 +9,7 @@ function Products() {
     fetch("https://dummyjson.com/products")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setProducts(data);
       })
       .catch((err) => console.error(`Error Fethcing data: `, err));

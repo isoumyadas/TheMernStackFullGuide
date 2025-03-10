@@ -1,9 +1,13 @@
 import React from "react";
+import { useCheckout } from "../../contexts/CheckoutContext";
 
 function Card({ products }) {
+  const { addCheckout } = useCheckout();
+
   if (!products) {
     return <p>Loading Data....</p>; // Handling missing data gracefully
   }
+
   return (
     <>
       {products.products ? (
@@ -31,8 +35,13 @@ function Card({ products }) {
                 <button
                   className="mt-3 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
                   onClick={() => {
-                    alert(`${product.title} Added to Checkout`);
-                  }}
+                    alert(`Product added to cart`);
+                    addCheckout(product);
+                  }} // you can pass product in object | as this is a single object | Object Format (Recommended for Flexibility)
+
+                  // ✅ Use addCheckout(product) if the function only requires the product.
+
+                  // ✅ Use addCheckout({ product }) if the function might need additional data now or in the future.
                 >
                   Add to Cart
                 </button>
@@ -41,7 +50,7 @@ function Card({ products }) {
           )
         )
       ) : (
-        <p>Loading Products...</p>
+        <p className="font-bold text-3xl">Loading Products...</p>
       )}
     </>
   );

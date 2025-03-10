@@ -7,6 +7,8 @@ import {
   Route,
   RouterProvider,
 } from "react-router";
+import { CheckoutProvider } from "./contexts/CheckoutContext";
+import { useState } from "react";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,10 +20,23 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  const [checkouts, setCheckouts] = useState([]);
+
+  function addCheckout(product) {
+    // console.log("Prd:", product);
+    // remember whenever you take data from object use spread operator
+    setCheckouts((prevCheckout) => [...prevCheckout, { ...product }]);
+    // console.log("the chec: ", checkouts);
+  }
+
+  function deleteCheckout(id) {
+    setCheckouts((prevProduct) => prevProduct.filter((prev) => prev.id !== id));
+  }
+
   return (
-    <>
+    <CheckoutProvider value={{ checkouts, addCheckout, deleteCheckout }}>
       <RouterProvider router={router} />
-    </>
+    </CheckoutProvider>
   );
 }
 

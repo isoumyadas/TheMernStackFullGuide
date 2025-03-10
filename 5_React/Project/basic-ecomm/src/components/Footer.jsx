@@ -28,7 +28,7 @@ function Footer() {
                 </li>
                 <li>
                   <Link to="/checkout" className="hover:underline">
-                    Checkout
+                    Cart
                   </Link>
                 </li>
               </ul>
