@@ -1,3 +1,4 @@
+// For learning about atomFamily, selectorFamily => https://www.notion.so/React-18d8a069a2a480a3bb48e49c3075fff1?pvs=4#1b38a069a2a480d19fcbf34896954c98
 import { notifications } from "./atoms";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { totalNotificationSelector } from "./selectors";
