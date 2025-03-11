@@ -1,6 +1,13 @@
 import React from "react";
-import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
+import {
+  RecoilRoot,
+  useRecoilState,
+  useRecoilValue,
+  useSetRecoilState,
+} from "recoil";
 import { countAtom } from "./store/atoms/Counter";
+
+import { evenSelector } from "./store/selectors/countSelector";
 
 // This works well with react 18 see package.json
 
@@ -10,9 +17,16 @@ function App() {
       <RecoilRoot>
         {console.log("Is this re-rendering")}
         <Count />
+        <EventCountRenderer />
       </RecoilRoot>
     </>
   );
+}
+
+function EventCountRenderer() {
+  const count = useRecoilValue(evenSelector);
+
+  return <div>{count % 2 === 0 ? "It is even" : null}</div>;
 }
 
 function Count() {
@@ -32,19 +46,23 @@ function CountRenderer() {
 }
 
 function Button() {
-  const [count, setCount] = useRecoilState(countAtom);
+  // const [count, setCount] = useRecoilState(countAtom);
+  const setCount = useSetRecoilState(countAtom);
+  // setCount(count + 1); // no more re-renders because buttons are not changing
+  // setCount(c => c + 1)
+
   return (
     <div className="flex gap-3">
       <button
         onClick={() => {
-          setCount(count + 1);
+          setCount((count) => count + 1);
         }}
       >
         Increase
       </button>
       <button
         onClick={() => {
-          setCount(count - 1);
+          setCount((count) => count - 1);
         }}
       >
         Decrease
