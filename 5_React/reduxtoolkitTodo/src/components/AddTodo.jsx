@@ -4,12 +4,12 @@ import { addTodo } from "../features/todo/todoSlice";
 
 function AddTodo() {
   const [input, setInput] = useState("");
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // this is react wire up
 
   const addTodoHandler = (e) => {
     e.preventDefault();
     dispatch(addTodo(input));
-    setInput("");
+    setInput(""); // clean the input
   };
   return (
     <form onSubmit={addTodoHandler} className="space-x-3 mt-12">
