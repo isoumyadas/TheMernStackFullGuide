@@ -20,7 +20,7 @@ app.use(
 
 // any kind of url encoded with the particular limit
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
-// setting like images or anything
+//  is used to serve static files (like CSS, images, JS) from a folder
 app.use(express.static("public"));
 
 app.use(cookieParser());
