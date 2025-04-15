@@ -5,6 +5,11 @@ const asyncHandler = (requestHandler) => {
   };
 };
 
+// why did passed req,res,next in requestHandler?
+// Because when we passed updateUser to asyncHandler, we only passed the function, not its arguments. so we are passing the arguments to get available for particular controller.
+
+//return (req, res, next) => {} gives Express the real middleware to use.
+
 //=======================================================================================
 
 // The try catch method.
