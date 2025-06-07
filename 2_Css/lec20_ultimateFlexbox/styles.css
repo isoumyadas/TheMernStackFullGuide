@@ -1,25 +1,46 @@
 .container {
-    border: 4px solid lightgreen;
-    height: 80vh;
-    display: flex;
-    /* justify-content: center; */
-    /* flex-direction: column; */
-    /* align-items: center; */
-    flex-wrap: wrap;
-    align-content: center;
-    gap: 39px;
+  border: 4px solid lightgreen;
+  height: 80vh;
+  display: flex;
+  /* justify-content: center; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 39px;
 }
 
-.item{
-    height: 100px;
-    width: 100px;
-    background-color: skyblue;
-    border: 1px solid black;
+.item {
+  height: 100px;
+  width: 100px;
+  background-color: skyblue;
+  border: 1px solid black;
 }
 
-.item-1{
-    flex-grow: 3;
+.item-1 {
+  flex-grow: 3;
 }
+
+/* 
+
+    Container properties:
+        display: flex
+        flex-direction
+        flex-wrap
+        justify-content
+        align-items
+        align-content
+        gap
+
+    Item properties:
+        order
+        flex-grow
+        flex-shrink
+        flex-basis
+        flex (shorthand)
+        align-self
+
+*/
 
 /* 
 
@@ -28,7 +49,7 @@
     align-items: center;
 
     here, justify-content center mean horziantally center
-    and align-items center mean vertically center
+    and align-items center mean vertically center | use flex-end instead of end do this for every flex.
 
     **Flex-direction**
         This helps you to set direction of your content
@@ -38,7 +59,7 @@
         This helps to wrap the items into container, if they overflowing or you want set view for mobile verison
     
     **align-content**
-        The main differnce between align-items and content is items work for the item are in one line and if it's more than one line then you've to use align-content.
+        align-items aligns individual items within a line, while align-content aligns the entire group of lines when there’s extra space in the cross-axis.
             you've flex-start,end,center
 
     **GAP**
