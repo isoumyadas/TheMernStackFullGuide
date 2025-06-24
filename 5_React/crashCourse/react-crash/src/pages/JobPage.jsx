@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 
 const JobPage = ({ deleteJob }) => {
   //   const { id } = useParams();
+
+  // This basically binds the loader function and state inside our component.
   const job = useLoaderData();
   const navigate = useNavigate();
   const onDeleteClick = (jobId) => {
@@ -20,6 +22,8 @@ const JobPage = ({ deleteJob }) => {
   };
   //   const [job, setJob] = useState(null);
   //   const [loading, setLoading] = useState(true);
+
+  // We can implement the fetch data part inside the callback function.       However, the problem with this approach is that it will run when the component is rendered. This makes it slow and may result in empty states.
 
   //   useEffect(() => {
   //     const fetchJob = async () => {
@@ -126,6 +130,7 @@ const JobPage = ({ deleteJob }) => {
 };
 
 // React router feature
+// This hook helps to fetch the data for the component before it renders, this improves performance and prevents empty states
 
 const jobLoader = async ({ params }) => {
   const res = await fetch(`/api/jobs/${params.id}`);
