@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeTodo } from "../features/todo/todoSlice";
 
 function Todos() {
-  const todos = useSelector((state) => state.todos); // to access something you can use useSelector
+  const todos = useSelector((state) => state.todos); // to access something you can use useSelector (we get state access & allows functional React components to access the Redux store's state)
 
-  const dispatch = useDispatch(); // when you want to run something or run functionality you can use dispatch
+  const dispatch = useDispatch(); // when you want to run something or run functionality you can use dispatch (to do add something to store we use dispatch)
   return (
     <>
       <ul className="list-none">
