@@ -5,6 +5,7 @@ import { Button, Input, Select } from "./index";
 import { useDispatch } from "react-redux";
 import authService from "../appwrite/auth";
 import { useForm } from "react-hook-form";
+import Logo from "./Logo";
 
 const Login = () => {
   const navigate = useNavigate();
