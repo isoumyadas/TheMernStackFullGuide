@@ -14,19 +14,19 @@ function App() {
       .then((userData) => {
         if (userData) {
           console.log("IF");
-          dispatch(login(userData));
+          dispatch(login({ userData }));
         } else {
           console.log("ELSE");
           dispatch(logout());
         }
       })
-      .catch((err) => {
+      .catch((error) => {
         throw new Error(
-          `Error in authService useEffect :: getCurrentUser => ${err.message}`
+          `Error in authService useEffect :: getCurrentUser => ${error.message}`
         );
       })
       .finally(() => setLoading(false));
-  }, [dispatch]);
+  }, []);
 
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
