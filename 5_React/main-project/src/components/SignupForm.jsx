@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import authService from "../appwrite/auth";
 import { useNavigate, Link } from "react-router";
 import { login } from "../store/authSlice";
@@ -6,11 +6,12 @@ import { Button, Input } from "./index";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import Logo from "./Logo";
-const Signup = () => {
+const SignupForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
+  const ref = useRef(null);
 
   const create = async (data) => {
     setError("");
@@ -33,6 +34,7 @@ const Signup = () => {
 
   return (
     <div className="flex items-center justify-center">
+      {console.log("In singup component")}
       <div
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
@@ -62,12 +64,14 @@ const Signup = () => {
               {...register("name", {
                 required: true,
               })}
+              ref={ref}
             />
 
             <Input
               label="Email: "
               placeholder="Enter your email"
               type="email"
+              ref={ref}
               {...register("email", {
                 required: true,
                 validate: {
@@ -81,6 +85,7 @@ const Signup = () => {
             <Input
               label="Password: "
               placeholder="Enter your password"
+              ref={ref}
               type="password"
               {...register("password", {
                 required: true,
@@ -97,4 +102,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignupForm;

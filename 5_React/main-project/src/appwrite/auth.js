@@ -1,4 +1,4 @@
-import conf from "../conf/conf.js";
+import conf from "../conf/conf";
 import { Client, Account, ID } from "appwrite";
 
 export class AuthService {
@@ -10,7 +10,13 @@ export class AuthService {
       .setEndpoint(conf.appwriteUrl)
       .setProject(conf.appwriteProjectId);
 
+    this.client
+      .call("get", "/health")
+      .then(() => console.log("✅ Ping successful"))
+      .catch((err) => console.error("❌ Ping failed", err));
+
     this.account = new Account(this.client);
+    console.log("Hols", this.account);
   }
 
   async createAccount({ email, password, name }) {
@@ -44,6 +50,7 @@ export class AuthService {
 
   async getCurrentUser() {
     try {
+      console.log("working 1", await this.account.get());
       return await this.account.get();
     } catch (error) {
       throw new Error(

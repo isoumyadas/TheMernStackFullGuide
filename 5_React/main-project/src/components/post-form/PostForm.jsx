@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, Select, RTE } from "../index";
 import service from "../../appwrite/config";
@@ -18,6 +18,7 @@ const PostForm = ({ post }) => {
 
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
+  const ref = useRef(null);
 
   const submit = async (data) => {
     if (post) {
@@ -123,6 +124,7 @@ const PostForm = ({ post }) => {
         <Select
           options={["active", "inactive"]}
           label="Status"
+          ref={ref}
           className="mb-4"
           {...register("status", { required: true })}
         />

@@ -1,10 +1,11 @@
 import React from "react";
-import { Signup as SignupComponent } from "../components";
+import { SignupForm } from "../components";
 
 const Signup = () => {
   return (
     <div className="py-8">
-      <SignupComponent />
+      {console.log("This is working in pagess")}
+      <SignupForm />
     </div>
   );
 };
