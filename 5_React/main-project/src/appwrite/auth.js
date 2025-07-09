@@ -10,13 +10,7 @@ export class AuthService {
       .setEndpoint(conf.appwriteUrl)
       .setProject(conf.appwriteProjectId);
 
-    this.client
-      .call("get", "/health")
-      .then(() => console.log("✅ Ping successful"))
-      .catch((err) => console.error("❌ Ping failed", err));
-
     this.account = new Account(this.client);
-    console.log("Hols", this.account);
   }
 
   async createAccount({ email, password, name }) {
@@ -50,8 +44,9 @@ export class AuthService {
 
   async getCurrentUser() {
     try {
-      console.log("working 1", await this.account.get());
-      return await this.account.get();
+      const userData = await this.account.get();
+      console.log("UserData:: ", userData);
+      return userData;
     } catch (error) {
       throw new Error(
         `Appwrite service:: getCurrentUser :: error => ${error.message}`

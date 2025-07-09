@@ -16,7 +16,7 @@ export class Service {
 
   async createPost({ title, slug, content, featuredImage, status, userId }) {
     try {
-      return await this.databases.createDocument(
+      const createdUser = await this.databases.createDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug,
@@ -28,6 +28,9 @@ export class Service {
           userId,
         }
       );
+
+      console.log("Created User::", createdUser);
+      return createdUser;
     } catch (error) {
       console.log("Appwrite serive :: createPost :: error", error);
     }
@@ -117,7 +120,13 @@ export class Service {
   }
 
   getFilePreview(fileId) {
-    return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
+    const featuredImagePreview = this.bucket.getFileView(
+      conf.appwriteBucketId,
+      fileId
+    );
+
+    console.log("Iamge::", featuredImagePreview);
+    return featuredImagePreview;
   }
 }
 

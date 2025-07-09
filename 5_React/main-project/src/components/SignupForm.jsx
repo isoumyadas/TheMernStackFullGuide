@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import authService from "../appwrite/auth";
 import { useNavigate, Link } from "react-router";
 import { login } from "../store/authSlice";
@@ -11,17 +11,17 @@ const SignupForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
-  const ref = useRef(null);
 
   const create = async (data) => {
+    console.log("In create");
     setError("");
     try {
       const userData = await authService.createAccount(data);
 
       if (userData) {
-        const user = await authService.getCurrentUser();
+        const userData = await authService.getCurrentUser();
 
-        if (user) dispatch(login(user));
+        if (userData) dispatch(login(userData));
         navigate("/");
       }
     } catch (error) {
@@ -34,7 +34,6 @@ const SignupForm = () => {
 
   return (
     <div className="flex items-center justify-center">
-      {console.log("In singup component")}
       <div
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
@@ -64,14 +63,14 @@ const SignupForm = () => {
               {...register("name", {
                 required: true,
               })}
-              ref={ref}
+              // ref={ref}
             />
 
             <Input
               label="Email: "
               placeholder="Enter your email"
               type="email"
-              ref={ref}
+              // ref={ref}
               {...register("email", {
                 required: true,
                 validate: {
@@ -85,14 +84,14 @@ const SignupForm = () => {
             <Input
               label="Password: "
               placeholder="Enter your password"
-              ref={ref}
+              // ref={ref}
               type="password"
               {...register("password", {
                 required: true,
               })}
             />
 
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full cursor-pointer">
               Create Account
             </Button>
           </div>
