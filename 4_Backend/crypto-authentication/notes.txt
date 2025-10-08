@@ -1,0 +1,7 @@
+Class: Cipheriv
+
+- Instances of the Cipheriv class are used to encrypt data. 
+
+
+- Learning Link
+https://nodejs.org/docs/latest/api/crypto.html#asymmetric-key-types:~:text=COPY-,Class%3A%20Cipheriv,-%23
