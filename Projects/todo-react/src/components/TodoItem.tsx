@@ -13,9 +13,9 @@ const TodoItem = ({ todo, setTask }) => {
   const [taskEdit, setTaskEdit] = useState(todo.todo); // we gave initial todo of the added todo.
   const [isEdit, setIsEdit] = useState(false);
 
-  function updateTask(id: string, todo: Todo) {
+  function updateTask(id: string, todo: string) {
     setTask((prevTodo: Todo[]) =>
-      prevTodo.map((prev) => (prev.id === id ? todo : prev))
+      prevTodo.map((prev) => (prev.id === id ? { ...prev, todo: todo } : prev))
     );
   }
 
@@ -23,7 +23,7 @@ const TodoItem = ({ todo, setTask }) => {
     if (todo.isCompleted) return;
 
     if (isEdit) {
-      updateTask(todo.id, { ...todo, todo: taskEdit }); // this mean for particular todo id we only have to change the todo key.
+      updateTask(todo.id, taskEdit); // this mean for particular todo id we only have to change the todo key.
       setIsEdit(false);
     } else setIsEdit(true);
   }
