@@ -2,13 +2,19 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { BookMarkedIcon, PencilIcon, XIcon } from "lucide-react";
 import { Input } from "./ui/input";
+import type { Todo } from "@/App";
+
+export interface TaskProps {
+  todo: Todo;
+  //   setTask:
+}
 
 const TodoItem = ({ todo, setTask }) => {
   const [taskEdit, setTaskEdit] = useState(todo.todo); // we gave initial todo of the added todo.
   const [isEdit, setIsEdit] = useState(false);
 
-  function updateTask(id, todo) {
-    setTask((prevTodo) =>
+  function updateTask(id: string, todo: Todo) {
+    setTask((prevTodo: Todo[]) =>
       prevTodo.map((prev) => (prev.id === id ? todo : prev))
     );
   }
@@ -22,12 +28,12 @@ const TodoItem = ({ todo, setTask }) => {
     } else setIsEdit((prev) => !prev);
   }
 
-  function deleteTask(id) {
-    setTask((prevTodo) => prevTodo.filter((prev) => prev.id !== id));
+  function deleteTask(id: string) {
+    setTask((prevTodo: Todo[]) => prevTodo.filter((prev) => prev.id !== id));
   }
 
-  function toggleComplete(id) {
-    setTask((prevTodo) =>
+  function toggleComplete(id: string) {
+    setTask((prevTodo: Todo[]) =>
       prevTodo.map((prev) =>
         prev.id === id ? { ...prev, isCompleted: !prev.isCompleted } : prev
       )

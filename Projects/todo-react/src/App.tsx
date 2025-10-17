@@ -12,7 +12,7 @@ export interface Todo {
 }
 
 function App() {
-  const [task, setTask] = useState([]);
+  const [task, setTask] = useState<Todo[]>([]);
   const [inputValue, setInputValue] = useState("");
 
   // functions
@@ -67,15 +67,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <div className="flex gap-3">
-  <Input value={task} onChange={(e) => setTaskEdit(e.target.value)} />
-  <Button
-    className="cursor-pointer"
-    onClick={() => setEditButtonClicked(false)}
-  >
-    
-  </Button>
-</div>; */
-}
