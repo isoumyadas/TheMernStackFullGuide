@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { BookMarkedIcon, PencilIcon, XIcon } from "lucide-react";
-import { Input } from "./ui/input";
+import { Input } from "@/components/ui/input";
 import type { Todo } from "@/App";
 
 export interface TaskProps {
@@ -25,7 +25,7 @@ const TodoItem = ({ todo, setTask }) => {
     if (isEdit) {
       updateTask(todo.id, { ...todo, todo: taskEdit }); // this mean for particular todo id we only have to change the todo key.
       setIsEdit(false);
-    } else setIsEdit((prev) => !prev);
+    } else setIsEdit(true);
   }
 
   function deleteTask(id: string) {

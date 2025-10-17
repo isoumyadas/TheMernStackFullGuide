@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRightIcon } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
-import TodoItem from "./components/TodoItem";
+import TodoItem from "@/components/TodoItem";
 
 export interface Todo {
   todo: string;
