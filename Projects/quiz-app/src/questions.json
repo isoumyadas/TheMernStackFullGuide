@@ -1,0 +1,67 @@
+[
+  {
+    "title": "What is the capital of France?",
+    "options": ["London", "Berlin", "Paris", "Madrid"],
+    "correctAnswer": "Paris",
+    "id": "1"
+  },
+  {
+    "title": "What is 5 * 8?",
+    "options": [40, 45, 35, 58],
+    "correctAnswer": 40,
+    "id": "2"
+  },
+  {
+    "title": "What planet is known as the Red Planet?",
+    "options": ["Earth", "Mars", "Jupiter", "Venus"],
+    "correctAnswer": "Mars",
+    "id": "3"
+  },
+  {
+    "title": "Who wrote 'Romeo and Juliet'?",
+    "options": [
+      "Charles Dickens",
+      "William Shakespeare",
+      "Jane Austen",
+      "Mark Twain"
+    ],
+    "correctAnswer": "William Shakespeare",
+    "id": "4"
+  },
+  {
+    "title": "What is the chemical symbol for water?",
+    "options": ["O2", "CO2", "H2O", "NaCl"],
+    "correctAnswer": "H2O",
+    "id": "5"
+  },
+  {
+    "title": "Which ocean is the largest?",
+    "options": ["Atlantic", "Indian", "Arctic", "Pacific"],
+    "correctAnswer": "Pacific",
+    "id": "6"
+  },
+  {
+    "title": "What is 10 - 3?",
+    "options": ["7", "8", "6", "13"],
+    "correctAnswer": "7",
+    "id": "7"
+  },
+  {
+    "title": "How many continents are there?",
+    "options": ["5", "6", "7", "8"],
+    "correctAnswer": "7",
+    "id": "8"
+  },
+  {
+    "title": "What is the tallest mammal?",
+    "options": ["Elephant", "Giraffe", "Whale", "Hippo"],
+    "correctAnswer": "Giraffe",
+    "id": "9"
+  },
+  {
+    "title": "What gas do plants absorb from the atmosphere?",
+    "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+    "correctAnswer": "Carbon Dioxide",
+    "id": "10"
+  }
+]
