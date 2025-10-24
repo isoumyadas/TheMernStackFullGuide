@@ -7,8 +7,8 @@
   },
   {
     "title": "What is 5 * 8?",
-    "options": [40, 45, 35, 58],
-    "correctAnswer": 40,
+    "options": ["40", "45", "35", "58"],
+    "correctAnswer": "40",
     "id": "2"
   },
   {
