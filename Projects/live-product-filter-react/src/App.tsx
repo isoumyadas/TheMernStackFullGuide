@@ -4,13 +4,18 @@ import ProductList from "./components/ProductList";
 import SearchBar from "./components/SearchBar";
 import CategoryFilter from "./components/CategoryFilter";
 import { type Product } from "./types";
+import { ShoppingCart } from "lucide-react";
+import { useCartLength } from "./utils/store";
+import { useNavigate } from "react-router";
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  // const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const cartItems = useCartLength((state) => state.cartItems);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchAllProducts() {
@@ -22,27 +27,6 @@ function App() {
 
     fetchAllProducts();
   }, []);
-
-  // useEffect(() => {
-  //   const filteredProds = products.filter((prod) => {
-  //     if (prod.title === searchTerm) {
-  //       console.log("this");
-  //       return prod;
-  //     }
-
-  //     if (prod.category === selectedCategory) {
-  //       console.log("that");
-  //       return prod;
-  //     }
-
-  //     if (selectedCategory === "all") {
-  //       console.log("them");
-  //       return prod;
-  //     }
-  //   });
-
-  //   setFilteredProducts(filteredProds);
-  // }, [searchTerm, products, selectedCategory]);
 
   // To make it sync | using useMemo will only re-calculate this list if one of the dependencies changes, this is good for optimization.
 
@@ -68,9 +52,16 @@ function App() {
   ) : (
     <div className="w-full scroll-smooth bg-gray-400">
       <div className="container mx-auto py-2">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-9">
           <SearchBar onSearchChange={setSearchTerm} />
           <CategoryFilter onCategoryChange={setSelectedCategory} />
+          <span className="flex gap-2 font-bold">
+            <ShoppingCart
+              className="cursor-pointer"
+              onClick={() => navigate("cart-page")}
+            />
+            <p>{cartItems.length}</p>
+          </span>
         </div>
         <ProductList products={filteredProducts} />
       </div>
