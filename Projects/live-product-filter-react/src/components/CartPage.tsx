@@ -29,7 +29,7 @@ const CartPage = () => {
     <div className="bg-gray-500 min-h-full p-5 flex flex-col gap-9">
       <div className=" flex gap-9">
         <label className="font-bold text-white bg-black rounded-full p-2">
-          Your Total Price: ${Math.floor(totalItemsPrice)}
+          Your Total Price: ${Math.floor(totalItemsPrice.toFixed(2))}
         </label>
         <Tooltip>
           <TooltipTrigger asChild>
