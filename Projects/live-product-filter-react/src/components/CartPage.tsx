@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { MinusIcon, PlusIcon, TrashIcon } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const CartPage = () => {
   const cartItems = useCartLength((state) => state.cartItems);
@@ -30,12 +31,19 @@ const CartPage = () => {
         <label className="font-bold text-white bg-black rounded-full p-2">
           Your Total Price: ${Math.floor(totalItemsPrice)}
         </label>
-        <button
-          onClick={() => removeAllItemsFromCart()}
-          className="cursor-pointer text-white bg-red-800 rounded-full p-1"
-        >
-          <TrashIcon />
-        </button>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={() => removeAllItemsFromCart()}
+              className="cursor-pointer text-white bg-red-800 rounded-full p-1"
+            >
+              <TrashIcon />
+            </button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Remove all products</p>
+          </TooltipContent>
+        </Tooltip>
       </div>
       <div className="container mx-auto flex items-center flex-wrap gap-5">
         {cartItems.map((item) => (
@@ -53,9 +61,15 @@ const CartPage = () => {
                     ${item.price}
                   </p>
                   <div className="flex gap-5 bg-black font-bold rounded-full text-white p-2">
-                    <MinusIcon onClick={() => updateCartItems(item)} />{" "}
+                    <MinusIcon
+                      className="cursor-pointer"
+                      onClick={() => updateCartItems(item)}
+                    />{" "}
                     {item.quantity}
-                    <PlusIcon onClick={() => addItemToCart(item)} />
+                    <PlusIcon
+                      className="cursor-pointer"
+                      onClick={() => addItemToCart(item)}
+                    />
                   </div>
                 </div>
               </CardFooter>
