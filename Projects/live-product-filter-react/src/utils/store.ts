@@ -28,7 +28,6 @@ export const useCartLength = create((set) => ({
       );
       const updatedCartItems = [...state.cartItems];
       if (updatedCartItems[existingItemIndex].quantity <= 1) {
-        console.log("hello");
         const filteredItems = state.cartItems.filter(
           (item) => item.id !== updatedCartItems[existingItemIndex].id
         );
@@ -42,6 +41,6 @@ export const useCartLength = create((set) => ({
     }),
   removeAllCartCount: () =>
     set((state) => {
-      return (state.cartItems.length = 0);
+      return (state.cartItems = []);
     }),
 }));
