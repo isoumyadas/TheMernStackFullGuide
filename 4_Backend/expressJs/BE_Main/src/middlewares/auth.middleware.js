@@ -6,6 +6,10 @@ import { User } from "../models/user.model.js";
 // Whenever you write middleware write next
 // we have added _ instead of res, cause we are not using that.
 
+// Headers are key-value pairs sent with every HTTP request and response. They carry metadata — information about the request or response, not the actual data.
+
+// In Express: Access using req.headers
+
 export const verifyJWT = asyncHandler(async (req, _, next) => {
   try {
     const token =
