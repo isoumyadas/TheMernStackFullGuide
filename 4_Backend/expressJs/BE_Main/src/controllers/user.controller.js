@@ -4,7 +4,7 @@ import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
-import mongoose, { Types } from "mongoose";
+import { Types } from "mongoose";
 
 const generateAccessAndRefreshTokens = async (userId) => {
   try {
@@ -219,8 +219,11 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
     }
 
     const options = {
-      httpOnly: true,
-      secure: true,
+      httpOnly: true, // Prevents JavaScript on the frontend from accessing the cookie (e.g., document.cookie).
+      // Protects from XSS attacks (Cross-Site Scripting).
+
+      secure: true, // Sends the cookie only over HTTPS (encrypted connection).
+      // Prevents MITM attacks (Man-In-The-Middle).
     };
 
     const { accessTokenUser, refreshTokenUser } =
