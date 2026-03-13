@@ -173,11 +173,28 @@
   // What is the difference between types and interfaces:
   /*
   
-      Types are not used to extends Classes 
-      Interfaces are used to extends Classes
-  
+      Classes can be implement both types and interfaces
+      type Animal = { name: string };
+      interface IAnimal { name: string };
+
+      class Dog implements Animal { name = "Rex" }   // ✅ Works
+      class Cat implements IAnimal { name = "Whiskers" } // ✅ Also works
+
+      Only type aliases support unions
       Types are used for Unions and Intersection (& |)
       Interfaces dont
+
+      // Interface — you're describing what a "User object" looks like
+            interface User {
+              name: string;
+              age: number;
+            }
+
+      // Type — for unions, intersections, primitives OR you're saying ID can be one of multiple things
+            type ID = string | number;
+            type Admin = User & { permissions: string[] };
+
+    Simple rule: if it's a plain object shape → interface. If it involves | or & → type.
   
   */
   ```
@@ -1214,3 +1231,4 @@
   }
 
   ```
+
