@@ -126,3 +126,99 @@
             }
         }
      ```
+
+5. Typing in async await
+```ts
+
+type ApiError = {
+    message: string;
+    code: number;
+};
+
+async function fetchUser(id: number): Promise<User> {
+    try {
+        const response = await fetch(`https://api.example.com/users/${id}`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data: User = await response.json();
+        return data;
+
+    } catch (error) {
+        // error is 'unknown' by default in TypeScript
+        if (error instanceof Error) {
+            throw new Error(`Failed to fetch user: ${error.message}`);
+        }
+        throw error;
+    }
+}
+
+
+// Promise<void> -> when nothing returned
+
+async function logMessage(message: string): Promise<void> {
+    await saveToDatabase(message); // do something
+    // no return value — Promise<void>
+}
+
+
+// Multiple Async calls
+
+async function loadDashboard(userId: number): Promise<void> {
+   const [user, orders]: [User, Order[]] = await Promise.all([
+    fetchUser(userId),
+    fetchOrders(userId),
+]);
+    console.log(user, orders);
+}
+
+// Common Return Types
+async function a(): Promise<string>   { return "hello" }  // returns a string
+async function b(): Promise<number>   { return 42 }       // returns a number
+async function c(): Promise<User>     { return user }     // returns an object
+async function d(): Promise<User[]>   { return [user] }   // returns an array
+async function e(): Promise<void>     { doSomething() }   // returns nothing
+async function f(): Promise<boolean>  { return true }     // returns a boolean
+```
+
+6. Enums
+```ts
+
+enum Role {
+    Admin = "ADMIN",
+    User  = "USER",
+    Guest = "GUEST",
+}
+
+function getPermissions(role: Role): string {
+    if (role === Role.Admin) return "Full access";
+    if (role === Role.User)  return "Limited access";
+    return "Read only";
+}
+
+getPermissions(Role.Admin); // ✅ "Full access"
+getPermissions("ADMIN");    // ❌ Error — must use Role.Admin
+
+
+// Example 2:
+enum OrderStatus {
+    Placed     = "PLACED",
+    Shipped    = "SHIPPED",
+    Delivered  = "DELIVERED",
+    Cancelled  = "CANCELLED",
+}
+
+type Order = {
+    id: number;
+    item: string;
+    status: OrderStatus; // ✅ only allows enum values
+};
+
+const order: Order = {
+    id: 1,
+    item: "Laptop",
+    status: OrderStatus.Placed, // ✅
+};
+```
