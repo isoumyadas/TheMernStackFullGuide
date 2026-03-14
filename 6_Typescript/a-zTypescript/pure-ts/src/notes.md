@@ -300,3 +300,25 @@ async function displayUserProfile(id: number) {
 displayUserProfile(1);
 
 ```
+8. Declaration Files (.d.ts)
+   - A .d.ts file is a type definition file — it describes the shape and types of some code without containing any actual implementation.
+
+   Why do they exist:
+   - JavaScript has no types — so when you use a JS library in TypeScript, TS has no idea what types it uses.
+   ```ts
+
+   // userService.d.ts
+
+    // No implementation — only types and shapes
+      export type User = {
+          id: number;
+          name: string;
+          email?: string;
+      };
+    
+    export declare function fetchUser(id: number): Promise<User>;
+    export declare function deleteUser(id: number): Promise<void>;
+
+   ```
+- .d.ts files — A bridge between JavaScript and TypeScript — they bring type safety to JS libraries.
+- You'll mostly install them via @types/, not write them.
