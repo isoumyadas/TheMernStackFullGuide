@@ -222,3 +222,81 @@ const order: Order = {
     status: OrderStatus.Placed, // ✅
 };
 ```
+
+7. Using type assertions (as), non-null assertion (!), readonly, optional chaining (?.), nullish coalescing(??) & import and export module
+```ts
+
+// types.ts
+export type Address = {
+    readonly city: string;    // readonly — cannot be changed after set
+    readonly country: string;
+};
+
+export type User = {
+    readonly id: number;      // readonly — id should never change
+    name: string;
+    email?: string;           // optional — may or may not exist
+    address?: Address;        // optional — may or may not exist
+};
+
+
+// userservice.ts
+import { User } from "./types";   // importing the type we exported above
+
+async function fetchUser(id: number): Promise<User> {
+    const response = await fetch(`https://api.example.com/users/${id}`);
+    const data = await response.json();
+    return data;
+}
+
+export { fetchUser }; // exporting the function for other files to use
+
+
+// main.ts
+
+import { fetchUser } from "./userService"; // import from another module
+import { User }      from "./types";
+// you can use this too
+// import type {User} from "./types"; // this will only available for type checking not for runtime.
+
+async function displayUserProfile(id: number) {
+
+    const rawData = await fetchUser(id);
+
+    // ---- Type Assertion (as) ----
+    // We tell TypeScript: "trust me, I know this is a User"
+    // useful when TypeScript can't infer the type itself
+    const user = rawData as User;
+
+
+    // ---- Non-null Assertion (!) ----
+    // We tell TypeScript: "trust me, this is NOT null or undefined"
+    // use only when you are 100% sure the value exists
+    const email = user.email!; // ✅ we're asserting email definitely exists
+    console.log(email.toUpperCase()); 
+
+
+    // ---- Optional Chaining (?.) ----
+    // Safely access nested properties that might not exist
+    // If address is undefined — returns undefined instead of crashing
+    const city = user.address?.city;
+    console.log(city); // "Mumbai" or undefined — never throws an error
+
+
+    // ---- Nullish Coalescing (??) ----
+    // If the left side is null or undefined — use the right side as default
+    const displayEmail = user.email   ?? "No email provided";
+    const displayCity  = user.address?.city ?? "City not available";
+
+    console.log(displayEmail); // "alice@example.com" or "No email provided"
+    console.log(displayCity);  // "Mumbai" or "City not available"
+
+
+    // ---- readonly ----
+    user.id = 99;          // ❌ Error — id is readonly, cannot reassign
+    user.name = "Bob";     // ✅ name is not readonly, can reassign
+}
+
+displayUserProfile(1);
+
+```
