@@ -64,3 +64,65 @@
   }; // ✅ must satisfy ALL fields
 
 ```
+4. Type narrowing
+   - TypeScript often starts with a wide, uncertain type — and narrowing is the process of making it more specific based on runtime checks.
+
+     ```ts
+
+     function greet(value: string | number) {
+      // Here TypeScript only knows: value is string | number
+      // It's WIDE — could be anything
+      
+      if (typeof value === "string") {
+          // Here TypeScript knows: value is DEFINITELY a string
+          // It's NARROW — specific and certain
+          console.log(value.toUpperCase()); // ✅ safe to use string methods
+      }
+      }
+
+     // Think of it like a funnel — you start wide and narrow down to something specific so TypeScript can let you use the right methods safely.
+
+     // a. typeof -> Used for primitive types like string, number, boolean
+
+       function format(value: string | number) {
+          if (typeof value === "string") {
+              // ✅ TypeScript knows: value is string
+              return value.toUpperCase();
+          }
+          // ✅ TypeScript knows: value is number here
+          return value.toFixed(2);
+      }
+      
+      format("hello"); // "HELLO"
+      format(3.14159); // "3.14"
+
+     // typeof null === "object" — this is a famous JS bug, so don't use typeof to check for objects or null.
+
+     // b. in -> Used when you want to check if property exists on an object
+
+     type AdminUser  = { name: string; role: "admin"; deleteUser: () => void };
+     
+      type NormalUser = { name: string; role: "user" };
+      
+      function handleUser(user: AdminUser | NormalUser) {
+          if ("deleteUser" in user) {
+              // ✅ TypeScript knows: user is AdminUser
+              user.deleteUser();
+          } else {
+              // ✅ TypeScript knows: user is NormalUser
+              console.log(`Hello, ${user.name}`);
+          }
+      }
+
+      // c. instanceof -> It only works for classes, not plain types or interfaces.
+
+         function handleError(error: unknown) {
+            if (error instanceof TypeError) {
+                console.log("Type error:", error.message);
+            } else if (error instanceof RangeError) {
+                console.log("Range error:", error.message);
+            } else {
+                console.log("Unknown error");
+            }
+        }
+     ```
